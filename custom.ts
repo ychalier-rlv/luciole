@@ -236,7 +236,7 @@ namespace luciole {
     //% block="avancer le prochain clignotement || dans une fenêtre de (ms) $window_ms"
     //% window_ms.min=0 window_ms.max=5000 window_ms.defl=200
     //% advanced=true
-    export function phaseAdvance(window_ms: number) {
+    export function phaseAdvance(window_ms: number = 200) {
         let now = input.runningTime();
         if (now >= _last + _period - window_ms) {
             _last -= 2 * _period;
@@ -264,7 +264,7 @@ namespace luciole {
     //% duration.min=0 duration.max=5000 duration.defl=200
     //% delay.min=0 delay.max=5000 delay.defl=0
     //% luminosity.min=0 luminosity.max=255 luminosity.defl=255
-    export function addLedPattern(duration: number, delay: number, luminosity: number = 1) {
+    export function addLedPattern(duration: number, delay: number, luminosity: number = 255) {
         _ledPatterns.push(new LedPattern(duration, delay, luminosity/255));
     }
 
